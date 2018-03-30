@@ -1,4 +1,4 @@
-version: '2'
+version: '2.2'
 services:
   web:
     image: httpd
@@ -15,7 +15,7 @@ services:
   fluentd:
     build: ./fluentd
     volumes:
-      - ./fluentd/conf:/fluentd/etc
+      - "${myFolder:-.}/fluentd/conf:/fluentd/etc"
     links:
       - "elasticsearch"
     ports:
